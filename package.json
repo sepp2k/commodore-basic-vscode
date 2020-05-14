@@ -1,0 +1,48 @@
+{
+    "name": "commodore-basic-vscode",
+    "displayName": "commodore-basic-vscode",
+    "description": "VSCode support for Commodore BASIC V2 (the BASIC used on the C64)",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.45.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "activationEvents": [
+        "onLanguage:basicv2"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "languages": [
+            {
+                "id": "basicv2",
+                "aliases": [
+                    "BASIC V2",
+                    "basicv2"
+                ],
+                "extensions": [
+                    ".bas"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "basicv2",
+                "scopeName": "source.basic",
+                "path": "./syntaxes/basicv2.tmLanguage.json"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.45.0",
+        "@types/node": "^13.11.0",
+        "typescript": "^3.8.3"
+    }
+}

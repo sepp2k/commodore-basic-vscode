@@ -1,0 +1,40 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "BASIC V2",
+	"patterns": [
+		{
+			"name": "comment.line.basicv2",
+			"match": "(?<=^[\\s\\d]*|:\\s*)rem[^\n]*"
+		},
+		{
+			"name": "keyword.control.basicv2",
+			"match": "close|clr|cmd|cont|data|def|dim|end|fn|for|fre|get|get#|gosub|goto|if|input|input#|let|list|load|new|next|on|open|poke|print|print#|read|restore|return|run|save|step|stop|sys|then|to|verify|wait"
+		},
+		{
+			"name": "keyword.other.basicv2",
+			"match": "and|or|not"
+		},
+		{
+			"name": "support.function.basicv2",
+			"match": "abs|asc|atn|chr$|cos|exp|int|left$|len|log|mid$|peek|pos|right$|rnd|sgn|sin|spc|sqr|str$|tab|tan|usr|val"
+		},
+		{
+			"name": "variable.other.basicv2",
+			"match": "[a-z]|(?<=[a-z][ \\t]*)[a-z0-9 \\t]"
+		},
+		{
+			"name": "string.quoted.double.basicv2",
+			"begin": "\"",
+			"end": "\""
+		},
+		{
+			"name": "constant.language.line-number.basicv2",
+			"match": "^[\\d \\t]+"
+		},
+		{
+			"name": "constant.numeric.basicv2",
+			"match": "[\\d \\t]+(?:\\.[\\d \\t]+)?"
+		}
+	],
+	"scopeName": "source.basic"
+}
