@@ -18,10 +18,12 @@ export function activate(context: vscode.ExtensionContext): void {
 
 function analyze(document: vscode.TextDocument, collection: vscode.DiagnosticCollection) {
     if (document) {
-		const sabas = spawn("sabas64", ["--json"]);
+		const executable = vscode.workspace.getConfiguration('basicv2').get("sabas64", "sabas64");
+		const sabas = spawn(executable, ["--json"]);
 		let stdout = "";
 		sabas.stdout.on('data', data => stdout += data);
-		sabas.on('close', (code) => {
+		sabas.stderr.on('data', data => console.log(data));
+		sabas.on('close', _ => {
 			const issues = JSON.parse(stdout) as Array<any>;
 			collection.set(document.uri, issues.map(issue => {
 				const line = issue.location.actualLine;

@@ -33,7 +33,17 @@
                 "scopeName": "source.basic",
                 "path": "./syntaxes/basicv2.tmLanguage.json"
             }
-        ]
+        ],
+        "configuration": {
+            "title": "Commodore BASIC",
+            "properties": {
+                "basicv2.sabas64": {
+                    "type": "string",
+                    "default": "sabas64",
+                    "description": "The executable of the sabas64 static analyzer. Should either be an absolute path or be present in the system PATH."
+                }
+            }
+        }
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
