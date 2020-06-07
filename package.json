@@ -1,6 +1,7 @@
 {
     "name": "commodore-basic-vscode",
     "displayName": "commodore-basic-vscode",
+    "publisher": "sepp2k",
     "description": "VSCode support for Commodore BASIC V2 (the BASIC used on the C64)",
     "version": "0.0.1",
     "engines": {
@@ -33,20 +34,11 @@
                 "scopeName": "source.basic",
                 "path": "./syntaxes/basicv2.tmLanguage.json"
             }
-        ],
-        "configuration": {
-            "title": "Commodore BASIC",
-            "properties": {
-                "basicv2.sabas64": {
-                    "type": "string",
-                    "default": "sabas64",
-                    "description": "The executable of the sabas64 static analyzer. Should either be an absolute path or be present in the system PATH."
-                }
-            }
-        }
+        ]
     },
     "scripts": {
-        "vscode:prepublish": "npm run compile",
+        "vscode:prepublish": "npm run dependencies && npm run compile",
+        "dependencies": "npm install && sh download-sabas64.sh",
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./"
     },

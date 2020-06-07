@@ -18,8 +18,11 @@ export function activate(context: vscode.ExtensionContext): void {
 
 function analyze(document: vscode.TextDocument, collection: vscode.DiagnosticCollection) {
     if (document) {
-		const executable = vscode.workspace.getConfiguration('basicv2').get("sabas64", "sabas64");
-		const sabas = spawn(executable, ["--json"]);
+		const extensionDir = vscode.extensions.getExtension("sepp2k.commodore-basic-vscode")?.extensionPath;
+		if (extensionDir == undefined) {
+			throw new Error();
+		}
+		const sabas = spawn(`${extensionDir}/sabas64/bin/sabas64`, ["--json"]);
 		let stdout = "";
 		sabas.stdout.on('data', data => stdout += data);
 		sabas.stderr.on('data', data => console.log(data));

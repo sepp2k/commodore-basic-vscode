@@ -12,7 +12,7 @@ TODO: Screenshot
 
 ## Requirements
 
-sabas64 needs to be available in the `PATH`
+This extension requires a Java Runtime Environment for Java 8 or later.
 
 ## Known Issues
 
